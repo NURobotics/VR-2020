@@ -93,7 +93,6 @@
     <ClCompile Include="..\shared\strtools.cpp" />
     <ClCompile Include="cpTime.c" />
     <ClCompile Include="cylinder.cpp" />
-    <ClCompile Include="InverseK.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="LighthouseTracking.cpp" />
     <ClCompile Include="PosCalcs.cpp" />
@@ -107,7 +106,6 @@
     <ClInclude Include="..\shared\Vectors.h" />
     <ClInclude Include="cpTime.h" />
     <ClInclude Include="cylinder.h" />
-    <ClInclude Include="InverseK.h" />
     <ClInclude Include="PosCalcs.h" />
     <ClInclude Include="LighthouseTracking.h" />
     <ClInclude Include="SerialClass.h" />

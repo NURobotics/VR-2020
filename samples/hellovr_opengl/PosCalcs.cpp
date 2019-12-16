@@ -1,5 +1,7 @@
 #include "PosCalcs.h"
 
+#define APPLE_PI 3.14159265359
+
 void ViveDevice::setPosAndRot(HmdVector3_t p, HmdQuaternion_t r) {
 	XYZ = p;
 	ROT = r;
@@ -162,33 +164,73 @@ Human::Human(HumanName n) {
 }
 
 RobotArm::RobotArm(float humanArmLength, const char* serial_port) {
-	human2ArmConversion = (upperArmLength + foreArmLength + handLength) / humanArmLength;
-
-	base.init(0, InverseK.b2a(0.0), InverseK.b2a(180.0));
-	upperarm.init(upperArmLength, InverseK.b2a(0.0), InverseK.b2a(180.0));
-	forearm.init(foreArmLength, InverseK.b2a(0.0), InverseK.b2a(180.0));
-	hand.init(handLength, InverseK.b2a(0.0), InverseK.b2a(180.0));
-
-	InverseK.attach(base, upperarm, forearm, hand);
+	armMaxLength = upperArmLength + foreArmLength + handLength;
+	human2ArmConversion = armMaxLength / humanArmLength;
 
 	this->SP = new Serial(serial_port);
 	if (this->SP->IsConnected())
 		printf("We're connected\n");
+
+	upperArmLenSq = upperArmLength * upperArmLength;
+	foreArmLenSq = foreArmLength * foreArmLength;
+	handLenSq = handLength * handLength;
+
+	handPosition.xSet(0); handPosition.ySet(0.150); handPosition.zSet(0.150);
 }
 
 void RobotArm::calcHandPosition(ViveController R) {
 	for (int i = 0; i < 3; i++) {
-		handPosition.v[i] = R.relativeXYZ.v[i] * (human2ArmConversion /20);
+		handPosition.v[i] = R.relativeXYZ.v[i] * human2ArmConversion;
+	}
+
+	float positionLength = sqrt(handPosition.v[0] * handPosition.v[0] + handPosition.v[1] * handPosition.v[1] + handPosition.v[2] * handPosition.v[2]);
+	if (positionLength > armMaxLength) {
+		float scaleFactor = armMaxLength / positionLength;
+
+		for (int i = 0; i < 3; i++) {
+			handPosition.v[i] *= scaleFactor;
+		}
 	}
 }
 
 void RobotArm::calcAngles(ViveController R) {
-	std::cout << InverseK.solve(R.relativeXYZ.y(), R.relativeXYZ.z(), R.relativeXYZ.x(), shoulderAngle, upperArmAngle, foreArmAngle, handAngle) << std::endl;
+	inverseKin(handPosition.x(), handPosition.z(), handPosition.y(), shoulderAngle, upperArmAngle, foreArmAngle, handAngle);
 	gripAngle = 180 * (1-R.trigger);
 }
 
-bool RobotArm::send(int base, int shoulder, int elbow, int wrist, int grip) {
+void RobotArm::inverseKin(float x, float y, float z, float& base, float& shoulder, float& elbow, float& wrist) {
+	/* Base angle and radial distance from x,y coordinates */
+	base = atan2(x, y);
+	y = sqrt((x * x) + (y * y));
 
+	/* Wrist position */
+	float wrist_z = z - baseHeight;
+	float wrist_y = y - handLength;
+
+	/* Shoulder to wrist distance ( AKA sw ) */
+	float s_w = (wrist_z * wrist_z) + (wrist_y * wrist_y);
+	float s_w_sqrt = sqrt(s_w);
+
+	/* s_w angle to ground */
+	float a1 = atan2(wrist_z, wrist_y);
+
+	/* s_w angle to humerus */
+	float a2 = acos(((upperArmLenSq - foreArmLenSq) + s_w) / (2.0 * upperArmAngle * s_w_sqrt));
+
+	/* shoulder angle */
+	float shl_angle_r = a1 + a2;
+	shoulder = 180.0 * shl_angle_r / APPLE_PI;
+
+	/* elbow angle */
+	float elb_angle_r = acos((upperArmLenSq + foreArmLenSq - s_w) / (2.0 * upperArmLength * foreArmLength));
+	float elb_angle_d = 180.0 * elb_angle_r / APPLE_PI;
+	elbow = -(180.0 - elb_angle_d);
+
+	/* wrist angle */
+	wrist = - elbow - shoulder;
+}
+
+bool RobotArm::send(int base, int shoulder, int elbow, int wrist, int grip) {
 	int length;
 	char to_send[6];
 	to_send[0] = (char)base;
@@ -197,11 +239,10 @@ bool RobotArm::send(int base, int shoulder, int elbow, int wrist, int grip) {
 	to_send[3] = (char)wrist;
 	to_send[4] = (char)grip;
 	to_send[5] = (char)255;
-	return (bool)SP->WriteData(to_send, 6);
 
+	return (bool)SP->WriteData(to_send, 6);
 }
 
-RobotArm::~RobotArm()
-{
+RobotArm::~RobotArm() {
 	this->SP->~Serial();
 }

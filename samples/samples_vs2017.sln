@@ -1,13 +1,9 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 14
-VisualStudioVersion = 14.0.25420.1
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.29609.76
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "hellovr_opengl", "hellovr_opengl\hellovr_opengl.vcxproj", "{FF19F6AE-67E0-4585-9D4A-038CB6E8DD09}"
-EndProject
-Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "driver_sample", "driver_sample\driver_sample.vcxproj", "{A47C788B-1BDA-4057-87A9-FC35ED711B44}"
-EndProject
-Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "hellovr_dx12", "hellovr_dx12\hellovr_dx12.vcxproj", "{407B75DC-C7A4-444B-B628-63BCAB83C981}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -23,22 +19,11 @@ Global
 		{FF19F6AE-67E0-4585-9D4A-038CB6E8DD09}.Release|Win32.ActiveCfg = Release|Win32
 		{FF19F6AE-67E0-4585-9D4A-038CB6E8DD09}.Release|Win32.Build.0 = Release|Win32
 		{FF19F6AE-67E0-4585-9D4A-038CB6E8DD09}.Release|x64.ActiveCfg = Release|Win32
-		{A47C788B-1BDA-4057-87A9-FC35ED711B44}.Debug|Win32.ActiveCfg = Debug|Win32
-		{A47C788B-1BDA-4057-87A9-FC35ED711B44}.Debug|Win32.Build.0 = Debug|Win32
-		{A47C788B-1BDA-4057-87A9-FC35ED711B44}.Debug|x64.ActiveCfg = Debug|x64
-		{A47C788B-1BDA-4057-87A9-FC35ED711B44}.Debug|x64.Build.0 = Debug|x64
-		{A47C788B-1BDA-4057-87A9-FC35ED711B44}.Release|Win32.ActiveCfg = Release|Win32
-		{A47C788B-1BDA-4057-87A9-FC35ED711B44}.Release|Win32.Build.0 = Release|Win32
-		{A47C788B-1BDA-4057-87A9-FC35ED711B44}.Release|x64.ActiveCfg = Release|x64
-		{A47C788B-1BDA-4057-87A9-FC35ED711B44}.Release|x64.Build.0 = Release|x64
-		{407B75DC-C7A4-444B-B628-63BCAB83C981}.Debug|Win32.ActiveCfg = Debug|Win32
-		{407B75DC-C7A4-444B-B628-63BCAB83C981}.Debug|Win32.Build.0 = Debug|Win32
-		{407B75DC-C7A4-444B-B628-63BCAB83C981}.Debug|x64.ActiveCfg = Debug|Win32
-		{407B75DC-C7A4-444B-B628-63BCAB83C981}.Release|Win32.ActiveCfg = Release|Win32
-		{407B75DC-C7A4-444B-B628-63BCAB83C981}.Release|Win32.Build.0 = Release|Win32
-		{407B75DC-C7A4-444B-B628-63BCAB83C981}.Release|x64.ActiveCfg = Release|Win32
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {DD3BE119-F2F4-4549-B79A-4C1318D05ED9}
 	EndGlobalSection
 EndGlobal

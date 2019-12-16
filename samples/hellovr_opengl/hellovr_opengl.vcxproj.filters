@@ -48,9 +48,6 @@
     <ClCompile Include="main.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="InverseK.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="Serial.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
@@ -81,9 +78,6 @@
       <Filter>Source Files</Filter>
     </ClInclude>
     <ClInclude Include="PosCalcs.h">
-      <Filter>Source Files</Filter>
-    </ClInclude>
-    <ClInclude Include="InverseK.h">
       <Filter>Source Files</Filter>
     </ClInclude>
     <ClInclude Include="SerialClass.h">

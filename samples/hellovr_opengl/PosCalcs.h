@@ -3,7 +3,6 @@
 #include <iostream>
 #include <math.h>
 
-#include "InverseK.h"
 #include "SerialClass.h"
 using namespace vr;
 
@@ -81,21 +80,24 @@ struct AllViveDevices {
 };
 
 struct RobotArm {
+	float baseHeight = .08875;
 	float upperArmLength = 0.096;
 	float foreArmLength = 0.0906;
 	float handLength = 0.096;
 
-	Link base, upperarm, forearm, hand;
+	float upperArmLenSq, foreArmLenSq, handLenSq;
 
 	HmdVector3_t handPosition;
 
+	float armMaxLength;
 	float human2ArmConversion;
 
-	float shoulderAngle;
-	float upperArmAngle;
-	float foreArmAngle;
-	float handAngle = -90;
-	int gripAngle;
+	float shoulderAngle = 0;
+	float upperArmAngle = 90;
+	float foreArmAngle = 180;
+	float handAngle = 90;
+
+	int gripAngle = 0;
 
 	Serial* SP;
 
@@ -103,6 +105,7 @@ struct RobotArm {
 	virtual ~RobotArm();
 	void calcHandPosition(ViveController R);
 	void calcAngles(ViveController R);
+	void inverseKin(float x, float y, float z, float& base, float& shoulder, float& elbow, float& wrist);
 
 	bool send(int base, int shoulder, int elbow, int wrist, int grip);
 };
