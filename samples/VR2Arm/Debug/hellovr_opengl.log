@@ -1,0 +1,2 @@
+﻿C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\MSBuild\Microsoft\VC\v160\Microsoft.CppBuild.targets(459,5): warning MSB8028: The intermediate directory (Debug\) contains files shared from another project (hellovr_opengl.vcxproj).  This can lead to incorrect clean and rebuild behavior.
+  hellovr_opengl.vcxproj -> C:\Users\aedth\Documents\GitHub\VR\samples\hellovr_opengl\..\bin\win32\VR2Arm.exe

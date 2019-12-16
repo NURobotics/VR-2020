@@ -1,0 +1,29 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.29609.76
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "VR2Arm", "VR2Arm\VR2Arm.vcxproj", "{28999B97-0737-4BA8-B902-E7973FFC765A}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Win32 = Debug|Win32
+		Debug|x64 = Debug|x64
+		Release|Win32 = Release|Win32
+		Release|x64 = Release|x64
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{28999B97-0737-4BA8-B902-E7973FFC765A}.Debug|Win32.ActiveCfg = Debug|Win32
+		{28999B97-0737-4BA8-B902-E7973FFC765A}.Debug|Win32.Build.0 = Debug|Win32
+		{28999B97-0737-4BA8-B902-E7973FFC765A}.Debug|x64.ActiveCfg = Debug|Win32
+		{28999B97-0737-4BA8-B902-E7973FFC765A}.Release|Win32.ActiveCfg = Release|Win32
+		{28999B97-0737-4BA8-B902-E7973FFC765A}.Release|Win32.Build.0 = Release|Win32
+		{28999B97-0737-4BA8-B902-E7973FFC765A}.Release|x64.ActiveCfg = Release|Win32
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {DD3BE119-F2F4-4549-B79A-4C1318D05ED9}
+	EndGlobalSection
+EndGlobal

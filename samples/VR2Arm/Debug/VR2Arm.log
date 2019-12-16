@@ -1,0 +1,88 @@
+﻿C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\MSBuild\Microsoft\VC\v160\Microsoft.CppBuild.targets(459,5): warning MSB8028: The intermediate directory (Debug\) contains files shared from another project (hellovr_opengl.vcxproj).  This can lead to incorrect clean and rebuild behavior.
+  main.cpp
+C:\Users\aedth\Documents\GitHub\VR\samples\VR2Arm\PosCalcs.h(83,27): warning C4305: 'initializing': truncation from 'double' to 'float'
+C:\Users\aedth\Documents\GitHub\VR\samples\VR2Arm\PosCalcs.h(84,30): warning C4305: 'initializing': truncation from 'double' to 'float'
+C:\Users\aedth\Documents\GitHub\VR\samples\VR2Arm\PosCalcs.h(85,30): warning C4305: 'initializing': truncation from 'double' to 'float'
+C:\Users\aedth\Documents\GitHub\VR\samples\VR2Arm\PosCalcs.h(86,26): warning C4305: 'initializing': truncation from 'double' to 'float'
+  LighthouseTracking.cpp
+C:\Users\aedth\Documents\GitHub\VR\samples\VR2Arm\PosCalcs.h(83,27): warning C4305: 'initializing': truncation from 'double' to 'float'
+C:\Users\aedth\Documents\GitHub\VR\samples\VR2Arm\PosCalcs.h(84,30): warning C4305: 'initializing': truncation from 'double' to 'float'
+C:\Users\aedth\Documents\GitHub\VR\samples\VR2Arm\PosCalcs.h(85,30): warning C4305: 'initializing': truncation from 'double' to 'float'
+C:\Users\aedth\Documents\GitHub\VR\samples\VR2Arm\PosCalcs.h(86,26): warning C4305: 'initializing': truncation from 'double' to 'float'
+C:\Users\aedth\Documents\GitHub\VR\samples\VR2Arm\LighthouseTracking.cpp(59,20): warning C4018: '<': signed/unsigned mismatch
+C:\Users\aedth\Documents\GitHub\VR\samples\VR2Arm\LighthouseTracking.cpp(95,1): warning C4996: 'sprintf': This function or variable may be unsafe. Consider using sprintf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+C:\Program Files (x86)\Windows Kits\10\Include\10.0.18362.0\ucrt\stdio.h(1774): message : see declaration of 'sprintf'
+C:\Users\aedth\Documents\GitHub\VR\samples\VR2Arm\LighthouseTracking.cpp(99,1): warning C4996: 'sprintf': This function or variable may be unsafe. Consider using sprintf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+C:\Program Files (x86)\Windows Kits\10\Include\10.0.18362.0\ucrt\stdio.h(1774): message : see declaration of 'sprintf'
+C:\Users\aedth\Documents\GitHub\VR\samples\VR2Arm\LighthouseTracking.cpp(103,1): warning C4996: 'sprintf': This function or variable may be unsafe. Consider using sprintf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+C:\Program Files (x86)\Windows Kits\10\Include\10.0.18362.0\ucrt\stdio.h(1774): message : see declaration of 'sprintf'
+C:\Users\aedth\Documents\GitHub\VR\samples\VR2Arm\LighthouseTracking.cpp(107,1): warning C4996: 'sprintf': This function or variable may be unsafe. Consider using sprintf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+C:\Program Files (x86)\Windows Kits\10\Include\10.0.18362.0\ucrt\stdio.h(1774): message : see declaration of 'sprintf'
+C:\Users\aedth\Documents\GitHub\VR\samples\VR2Arm\LighthouseTracking.cpp(111,1): warning C4996: 'sprintf': This function or variable may be unsafe. Consider using sprintf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+C:\Program Files (x86)\Windows Kits\10\Include\10.0.18362.0\ucrt\stdio.h(1774): message : see declaration of 'sprintf'
+C:\Users\aedth\Documents\GitHub\VR\samples\VR2Arm\LighthouseTracking.cpp(115,1): warning C4996: 'sprintf': This function or variable may be unsafe. Consider using sprintf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+C:\Program Files (x86)\Windows Kits\10\Include\10.0.18362.0\ucrt\stdio.h(1774): message : see declaration of 'sprintf'
+C:\Users\aedth\Documents\GitHub\VR\samples\VR2Arm\LighthouseTracking.cpp(119,1): warning C4996: 'sprintf': This function or variable may be unsafe. Consider using sprintf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+C:\Program Files (x86)\Windows Kits\10\Include\10.0.18362.0\ucrt\stdio.h(1774): message : see declaration of 'sprintf'
+C:\Users\aedth\Documents\GitHub\VR\samples\VR2Arm\LighthouseTracking.cpp(123,1): warning C4996: 'sprintf': This function or variable may be unsafe. Consider using sprintf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+C:\Program Files (x86)\Windows Kits\10\Include\10.0.18362.0\ucrt\stdio.h(1774): message : see declaration of 'sprintf'
+C:\Users\aedth\Documents\GitHub\VR\samples\VR2Arm\LighthouseTracking.cpp(128,1): warning C4996: 'sprintf': This function or variable may be unsafe. Consider using sprintf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+C:\Program Files (x86)\Windows Kits\10\Include\10.0.18362.0\ucrt\stdio.h(1774): message : see declaration of 'sprintf'
+C:\Users\aedth\Documents\GitHub\VR\samples\VR2Arm\LighthouseTracking.cpp(135,1): warning C4996: 'sprintf': This function or variable may be unsafe. Consider using sprintf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+C:\Program Files (x86)\Windows Kits\10\Include\10.0.18362.0\ucrt\stdio.h(1774): message : see declaration of 'sprintf'
+C:\Users\aedth\Documents\GitHub\VR\samples\VR2Arm\LighthouseTracking.cpp(142,1): warning C4996: 'sprintf': This function or variable may be unsafe. Consider using sprintf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+C:\Program Files (x86)\Windows Kits\10\Include\10.0.18362.0\ucrt\stdio.h(1774): message : see declaration of 'sprintf'
+C:\Users\aedth\Documents\GitHub\VR\samples\VR2Arm\LighthouseTracking.cpp(148,1): warning C4996: 'sprintf': This function or variable may be unsafe. Consider using sprintf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+C:\Program Files (x86)\Windows Kits\10\Include\10.0.18362.0\ucrt\stdio.h(1774): message : see declaration of 'sprintf'
+C:\Users\aedth\Documents\GitHub\VR\samples\VR2Arm\LighthouseTracking.cpp(152,1): warning C4996: 'sprintf': This function or variable may be unsafe. Consider using sprintf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+C:\Program Files (x86)\Windows Kits\10\Include\10.0.18362.0\ucrt\stdio.h(1774): message : see declaration of 'sprintf'
+C:\Users\aedth\Documents\GitHub\VR\samples\VR2Arm\LighthouseTracking.cpp(159,1): warning C4996: 'sprintf': This function or variable may be unsafe. Consider using sprintf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+C:\Program Files (x86)\Windows Kits\10\Include\10.0.18362.0\ucrt\stdio.h(1774): message : see declaration of 'sprintf'
+C:\Users\aedth\Documents\GitHub\VR\samples\VR2Arm\LighthouseTracking.cpp(248,44): warning C4018: '<': signed/unsigned mismatch
+C:\Users\aedth\Documents\GitHub\VR\samples\VR2Arm\LighthouseTracking.cpp(439,1): warning C4996: 'sprintf': This function or variable may be unsafe. Consider using sprintf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+C:\Program Files (x86)\Windows Kits\10\Include\10.0.18362.0\ucrt\stdio.h(1774): message : see declaration of 'sprintf'
+C:\Users\aedth\Documents\GitHub\VR\samples\VR2Arm\LighthouseTracking.cpp(440,1): warning C4996: 'sprintf': This function or variable may be unsafe. Consider using sprintf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+C:\Program Files (x86)\Windows Kits\10\Include\10.0.18362.0\ucrt\stdio.h(1774): message : see declaration of 'sprintf'
+C:\Users\aedth\Documents\GitHub\VR\samples\VR2Arm\LighthouseTracking.cpp(441,1): warning C4996: 'sprintf': This function or variable may be unsafe. Consider using sprintf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+C:\Program Files (x86)\Windows Kits\10\Include\10.0.18362.0\ucrt\stdio.h(1774): message : see declaration of 'sprintf'
+C:\Users\aedth\Documents\GitHub\VR\samples\VR2Arm\LighthouseTracking.cpp(554,20): warning C4018: '<': signed/unsigned mismatch
+C:\Users\aedth\Documents\GitHub\VR\samples\VR2Arm\LighthouseTracking.cpp(517,1): warning C4996: 'sprintf': This function or variable may be unsafe. Consider using sprintf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+C:\Program Files (x86)\Windows Kits\10\Include\10.0.18362.0\ucrt\stdio.h(1774): message : see declaration of 'sprintf'
+C:\Users\aedth\Documents\GitHub\VR\samples\VR2Arm\LighthouseTracking.cpp(528,1): warning C4996: 'sprintf': This function or variable may be unsafe. Consider using sprintf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+C:\Program Files (x86)\Windows Kits\10\Include\10.0.18362.0\ucrt\stdio.h(1774): message : see declaration of 'sprintf'
+C:\Users\aedth\Documents\GitHub\VR\samples\VR2Arm\LighthouseTracking.cpp(539,1): warning C4996: 'sprintf': This function or variable may be unsafe. Consider using sprintf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+C:\Program Files (x86)\Windows Kits\10\Include\10.0.18362.0\ucrt\stdio.h(1774): message : see declaration of 'sprintf'
+C:\Users\aedth\Documents\GitHub\VR\samples\VR2Arm\LighthouseTracking.cpp(544,1): warning C4996: 'sprintf': This function or variable may be unsafe. Consider using sprintf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+C:\Program Files (x86)\Windows Kits\10\Include\10.0.18362.0\ucrt\stdio.h(1774): message : see declaration of 'sprintf'
+C:\Users\aedth\Documents\GitHub\VR\samples\VR2Arm\LighthouseTracking.cpp(545,1): warning C4996: 'sprintf': This function or variable may be unsafe. Consider using sprintf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+C:\Program Files (x86)\Windows Kits\10\Include\10.0.18362.0\ucrt\stdio.h(1774): message : see declaration of 'sprintf'
+C:\Users\aedth\Documents\GitHub\VR\samples\VR2Arm\LighthouseTracking.cpp(546,1): warning C4996: 'sprintf': This function or variable may be unsafe. Consider using sprintf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+C:\Program Files (x86)\Windows Kits\10\Include\10.0.18362.0\ucrt\stdio.h(1774): message : see declaration of 'sprintf'
+C:\Users\aedth\Documents\GitHub\VR\samples\VR2Arm\LighthouseTracking.cpp(548,1): warning C4996: 'sprintf': This function or variable may be unsafe. Consider using sprintf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+C:\Program Files (x86)\Windows Kits\10\Include\10.0.18362.0\ucrt\stdio.h(1774): message : see declaration of 'sprintf'
+C:\Users\aedth\Documents\GitHub\VR\samples\VR2Arm\LighthouseTracking.cpp(581,1): warning C4996: 'sprintf': This function or variable may be unsafe. Consider using sprintf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+C:\Program Files (x86)\Windows Kits\10\Include\10.0.18362.0\ucrt\stdio.h(1774): message : see declaration of 'sprintf'
+C:\Users\aedth\Documents\GitHub\VR\samples\VR2Arm\LighthouseTracking.cpp(584,1): warning C4996: 'sprintf': This function or variable may be unsafe. Consider using sprintf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+C:\Program Files (x86)\Windows Kits\10\Include\10.0.18362.0\ucrt\stdio.h(1774): message : see declaration of 'sprintf'
+C:\Users\aedth\Documents\GitHub\VR\samples\VR2Arm\LighthouseTracking.cpp(587,1): warning C4996: 'sprintf': This function or variable may be unsafe. Consider using sprintf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+C:\Program Files (x86)\Windows Kits\10\Include\10.0.18362.0\ucrt\stdio.h(1774): message : see declaration of 'sprintf'
+C:\Users\aedth\Documents\GitHub\VR\samples\VR2Arm\LighthouseTracking.cpp(590,1): warning C4996: 'sprintf': This function or variable may be unsafe. Consider using sprintf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+C:\Program Files (x86)\Windows Kits\10\Include\10.0.18362.0\ucrt\stdio.h(1774): message : see declaration of 'sprintf'
+C:\Users\aedth\Documents\GitHub\VR\samples\VR2Arm\LighthouseTracking.cpp(593,1): warning C4996: 'sprintf': This function or variable may be unsafe. Consider using sprintf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+C:\Program Files (x86)\Windows Kits\10\Include\10.0.18362.0\ucrt\stdio.h(1774): message : see declaration of 'sprintf'
+C:\Users\aedth\Documents\GitHub\VR\samples\VR2Arm\LighthouseTracking.cpp(596,1): warning C4996: 'sprintf': This function or variable may be unsafe. Consider using sprintf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+C:\Program Files (x86)\Windows Kits\10\Include\10.0.18362.0\ucrt\stdio.h(1774): message : see declaration of 'sprintf'
+C:\Users\aedth\Documents\GitHub\VR\samples\VR2Arm\LighthouseTracking.cpp(606,1): warning C4996: 'sprintf': This function or variable may be unsafe. Consider using sprintf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+C:\Program Files (x86)\Windows Kits\10\Include\10.0.18362.0\ucrt\stdio.h(1774): message : see declaration of 'sprintf'
+C:\Users\aedth\Documents\GitHub\VR\samples\VR2Arm\LighthouseTracking.cpp(608,1): warning C4996: 'sprintf': This function or variable may be unsafe. Consider using sprintf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+C:\Program Files (x86)\Windows Kits\10\Include\10.0.18362.0\ucrt\stdio.h(1774): message : see declaration of 'sprintf'
+C:\Users\aedth\Documents\GitHub\VR\samples\VR2Arm\LighthouseTracking.cpp(625,31): warning C4474: 'printf' : too many arguments passed for format string
+C:\Users\aedth\Documents\GitHub\VR\samples\VR2Arm\LighthouseTracking.cpp(625,31): message : placeholders and their parameters expect 0 variadic arguments, but 1 were provided
+C:\Users\aedth\Documents\GitHub\VR\samples\VR2Arm\LighthouseTracking.cpp(617,1): warning C4996: 'sprintf': This function or variable may be unsafe. Consider using sprintf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+C:\Program Files (x86)\Windows Kits\10\Include\10.0.18362.0\ucrt\stdio.h(1774): message : see declaration of 'sprintf'
+C:\Users\aedth\Documents\GitHub\VR\samples\VR2Arm\LighthouseTracking.cpp(619,1): warning C4996: 'sprintf': This function or variable may be unsafe. Consider using sprintf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+C:\Program Files (x86)\Windows Kits\10\Include\10.0.18362.0\ucrt\stdio.h(1774): message : see declaration of 'sprintf'
+  Serial.cpp
+  Generating Code...
+  cpTime.c
+  VR2Arm.vcxproj -> C:\Users\aedth\Documents\GitHub\VR\samples\VR2Arm\..\bin\win32\VR2Arm.exe
