@@ -92,10 +92,10 @@ struct RobotArm {
 	float armMaxLength;
 	float human2ArmConversion;
 
-	float shoulderAngle = 0;
-	float upperArmAngle = 90;
-	float foreArmAngle = 180;
-	float handAngle = 90;
+	float baseAngle = 90;
+	float shoulderAngle = 90;
+	float elbowAngle = 90;
+	float wristAngle = 90;
 
 	int gripAngle = 0;
 
@@ -105,7 +105,11 @@ struct RobotArm {
 	virtual ~RobotArm();
 	void calcHandPosition(ViveController R);
 	void calcAngles(ViveController R);
-	void inverseKin(float x, float y, float z, float& base, float& shoulder, float& elbow, float& wrist);
+	void inverseKin();
+
+	void IK2();
+	bool _solve(float x, float y, float& shoulder, float& elbow, float& wrist);
+	bool _solve(float x, float y, float phi, float& shoulder, float& elbow, float& wrist);
 
 	bool send(int base, int shoulder, int elbow, int wrist, int grip);
 };
