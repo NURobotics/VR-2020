@@ -171,7 +171,7 @@ Human::Human(HumanName n) {
 }
 
 RobotArm::RobotArm(float humanArmLength, const char* serial_port) {
-	armMaxLength = (upperArmLength + foreArmLength + handLength) * .95;
+	armMaxLength = (upperArmLength + foreArmLength + handLength);
 	human2ArmConversion = armMaxLength / humanArmLength;
 
 	this->SP = new Serial(serial_port);
@@ -192,7 +192,7 @@ void RobotArm::calcHandPosition(ViveController R) {
 }
 
 void RobotArm::calcAngles(ViveController R) {
-	float positionLength = sqrt(handPosition.v[0] * handPosition.v[0] + handPosition.v[1] * handPosition.v[1] + (handPosition.v[2]-baseHeight) * (handPosition.v[2]-baseHeight));
+	float positionLength = sqrt(handPosition.v[0] * handPosition.v[0] + handPosition.v[1] * handPosition.v[1] + handPosition.v[2] * handPosition.v[2]);
 	if (positionLength > armMaxLength) {
 		float scaleFactor = armMaxLength / positionLength;
 		for (int i = 0; i < 3; i++) {

@@ -80,7 +80,6 @@ struct AllViveDevices {
 };
 
 struct RobotArm {
-	float baseHeight = .08875;
 	float upperArmLength = 0.096;
 	float foreArmLength = 0.0906;
 	float handLength = 0.096;
