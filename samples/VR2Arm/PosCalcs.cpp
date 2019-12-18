@@ -1,12 +1,5 @@
 #include "PosCalcs.h"
 
-#define APPLE_PI 3.14159265359
-#define HALF_PI 1.57079633
-#define RAD_TO_DEG 57.295779513082320876798154814105
-#define DEG_TO_RAD 0.017453292519943295769236907684886
-#define degrees(rad) ((rad)*RAD_TO_DEG)
-#define radians(deg) ((deg)*DEG_TO_RAD)
-
 using namespace std;
 
 void ViveDevice::setPosAndRot(HmdVector3_t p, HmdQuaternion_t r) {
@@ -171,8 +164,8 @@ Human::Human(HumanName n) {
 }
 
 RobotArm::RobotArm(float humanArmLength, const char* serial_port) {
-	armMaxLength = (upperArmLength + foreArmLength + handLength);
-	human2ArmConversion = armMaxLength / humanArmLength;
+	armMaxLength = (upperArmLength + foreArmLength + handLength) * .99;
+    human2ArmConversion = armMaxLength / humanArmLength;
 
 	this->SP = new Serial(serial_port);
 	if (this->SP->IsConnected())
@@ -232,12 +225,10 @@ void RobotArm::inverseKin() {
         float shoulderRad = HALF_PI - (a1 + a2) - elbowRad;
         float wristRad = i - (elbowRad + shoulderRad) + HALF_PI;
 
-        shoulderRad += HALF_PI;
-
         if (!isnanf(shoulderRad) && !isnanf(elbowRad) && !isnanf(wristRad)) {
-            shoulderAngle = degrees(shoulderRad);
-            elbowAngle = degrees(elbowRad);
-            wristAngle = degrees(wristRad);
+            shoulderAngle = min(max(degrees(shoulderRad+HALF_PI), 0.0), 180.0);
+            elbowAngle = min(max(degrees(elbowRad+HALF_PI), 0.0), 180.0);
+            wristAngle = min(max(degrees(wristRad), 0.0), 180.0);
             break;
         }
     }

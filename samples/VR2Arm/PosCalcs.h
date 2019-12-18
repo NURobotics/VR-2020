@@ -4,6 +4,14 @@
 #include <math.h>
 
 #include "SerialClass.h"
+
+#define APPLE_PI 3.14159265359
+#define HALF_PI 1.57079633
+#define RAD_TO_DEG 57.295779513082320876798154814105
+#define DEG_TO_RAD 0.017453292519943295769236907684886
+#define degrees(rad) ((rad)*RAD_TO_DEG)
+#define radians(deg) ((deg)*DEG_TO_RAD)
+
 using namespace vr;
 
 enum HumanName {
