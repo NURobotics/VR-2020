@@ -1,6 +1,11 @@
 #include "PosCalcs.h"
 
 #define APPLE_PI 3.14159265359
+#define HALF_PI 1.57079633
+#define RAD_TO_DEG 57.295779513082320876798154814105
+#define DEG_TO_RAD 0.017453292519943295769236907684886
+#define degrees(rad) ((rad)*RAD_TO_DEG)
+#define radians(deg) ((deg)*DEG_TO_RAD)
 
 using namespace std;
 
@@ -166,7 +171,7 @@ Human::Human(HumanName n) {
 }
 
 RobotArm::RobotArm(float humanArmLength, const char* serial_port) {
-	armMaxLength = upperArmLength + foreArmLength + handLength;
+	armMaxLength = (upperArmLength + foreArmLength + handLength) * .95;
 	human2ArmConversion = armMaxLength / humanArmLength;
 
 	this->SP = new Serial(serial_port);
@@ -187,162 +192,55 @@ void RobotArm::calcHandPosition(ViveController R) {
 }
 
 void RobotArm::calcAngles(ViveController R) {
-	float positionLength = sqrt(handPosition.v[0] * handPosition.v[0] + handPosition.v[1] * handPosition.v[1] + handPosition.v[2] * handPosition.v[2]);
+	float positionLength = sqrt(handPosition.v[0] * handPosition.v[0] + handPosition.v[1] * handPosition.v[1] + (handPosition.v[2]-baseHeight) * (handPosition.v[2]-baseHeight));
 	if (positionLength > armMaxLength) {
 		float scaleFactor = armMaxLength / positionLength;
 		for (int i = 0; i < 3; i++) {
-			//handPosition.v[i] *= scaleFactor;
+			handPosition.v[i] *= scaleFactor;
 		}
 	}
 
-	//inverseKin();
-	IK2();
+	inverseKin();
 	gripAngle = 180 * (1-R.trigger);
 }
 
 void RobotArm::inverseKin() {
     float x = handPosition.x();
-    float y = handPosition.z();
-    float z = handPosition.y();
+    float y = handPosition.y();
+    float z = handPosition.z();
 
-    x = min(max(x, (float) -0.150), (float) 0.150);
-    y = min(max(y, (float) 0.050), (float) 0.200);
-    z = min(max(z, (float) 0.020), (float) 0.225);
-	cout << x << " " << y << " " << z << endl;
+    z = max(z, (float) 0.020);
 
-	/* Base angle and radial distance from x,y coordinates */
-	baseAngle = atan2(x, y);
-	y = sqrt((x * x) + (y * y));
+    baseAngle = atan2(x, y);
 
-	/* Wrist position */
-	float wrist_z = z - baseHeight;
-	float wrist_y = y - handLength;
+    // i = global wrist angle
+    for (float i = 0; i <= APPLE_PI; i+=DEG_TO_RAD) {
+        const float wrist_y = y - cos(i) * handLength;
+        const float wrist_z = z - sin(i) * handLength;
 
-	/* Shoulder to wrist distance ( AKA sw ) */
-	float s_w = (wrist_z * wrist_z) + (wrist_y * wrist_y);
-	float s_w_sqrt = sqrt(s_w);
+        /* Shoulder to wrist distance ( AKA sw ) */
+        const float s_w = (wrist_z * wrist_z) + (wrist_y * wrist_y);
+        const float s_w_sqrt = sqrt(s_w);
 
-	/* s_w angle to ground */
-	float a1 = atan2(wrist_z, wrist_y);
+        /* s_w angle to ground */
+        const float a1 = atan2(wrist_y, wrist_z);
 
-	/* s_w angle to humerus */
-	float a2 = acos(((upperArmLenSq - foreArmLenSq) + s_w) / (2.0 * upperArmLength * s_w_sqrt));
+        /* s_w angle to humerus */
+        const float a2 = acos((foreArmLenSq - upperArmLenSq + s_w) / (2.0 * s_w_sqrt * foreArmLength));
 
-	/* shoulder angle */
-	float shl_angle_r = a1 + a2;
-	shoulderAngle = 180.0 * shl_angle_r / APPLE_PI;
+        float elbowRad = acos((upperArmLenSq + foreArmLenSq - s_w) / (2.0 * upperArmLength * foreArmLength)) - HALF_PI;
+        float shoulderRad = HALF_PI - (a1 + a2) - elbowRad;
+        float wristRad = i - (elbowRad + shoulderRad) + HALF_PI;
 
-	/* elbow angle */
-	float elb_angle_r = acos((upperArmLenSq + foreArmLenSq - s_w) / (2.0 * upperArmLength * foreArmLength));
-	float elb_angle_d = 180.0 * elb_angle_r / APPLE_PI;
-	elbowAngle = -(180.0 - elb_angle_d);
+        shoulderRad += HALF_PI;
 
-	/* wrist angle */
-	wristAngle = - elbowAngle - shoulderAngle;
-
-	shoulderAngle = 90.0 -((shoulderAngle - 90.0)*.633);
-	elbowAngle = 90.0 + ((elbowAngle - 90.0) * .633);
-	wristAngle = 90.0 + (wristAngle * .633);
-}
-
-bool inRange(float num) {
-    return (num >= 0) && (num <= APPLE_PI);
-}
-
-bool _cosrule(float opposite, float adjacent1, float adjacent2, float& angle) {
-	float delta = 2 * adjacent1 * adjacent2;
-
-	if (delta == 0) return false;
-
-	float cos = (adjacent1*adjacent1 + adjacent2*adjacent2 - opposite*opposite) / delta;
-
-	if ((cos > 1) || (cos < -1)) return false;
-
-	angle = acos(cos);
-
-	return true;
-}
-
-bool RobotArm::_solve(float x, float y, float phi, float& shoulder, float& elbow, float& wrist) {
-	// Adjust coordinate system for base as ground plane
-	float _r = sqrt(x*x + y*y);
-	float _theta = atan2(y, x);
-	float _x = _r * cos(_theta - APPLE_PI / 2);
-	float _y = _r * sin(_theta - APPLE_PI / 2);
-	float _phi = phi - APPLE_PI / 2;
-
-	// Find the coordinate for the wrist
-	float xw = _x - handLength * cos(_phi);
-	float yw = _y - handLength * sin(_phi);
-
-	// Get polar system
-	float alpha = atan2(yw, xw);
-	float R = sqrt(xw*xw + yw*yw);
-
-	// Calculate the inner angle of the shoulder
-	float beta;
-	if(!_cosrule(foreArmLength, R, upperArmLength, beta)) return false;
-
-	// Calcula the inner angle of the elbow
-	float gamma;
-	if(!_cosrule(R, upperArmLength, foreArmLength, gamma)) return false;
-
-	// Solve the angles of the arm
-	float _shoulder, _elbow, _wrist;
-	_shoulder = alpha - beta;
-	_elbow = 3*APPLE_PI/2 - gamma;
-	_wrist = _phi - _shoulder - _elbow;
-
-	// Check the range of each hinge
-	if (!inRange(_shoulder) || !inRange(_elbow) || !inRange(_wrist)) {
-		// If not in range, solve for the second solution
-		_shoulder += 2 * beta;
-		_elbow *= -1;
-		_wrist = _phi - _shoulder - _elbow;
-
-		// Check the range for the second solution
-		if (!inRange(_shoulder) || !inRange(_elbow) || !inRange(_wrist)) return false;
-	}
-
-	// Return the solution
-	shoulder = 180 * _shoulder / APPLE_PI;
-	elbow = 180 * _elbow / APPLE_PI;
-	wrist = 180 * _wrist / APPLE_PI;
-
-	return true;
-}
-
-bool RobotArm::_solve(float x, float y, float& shoulder, float& elbow, float& wrist) {
-	if (_solve(x, y, -2.0*APPLE_PI, shoulder, elbow, wrist)) return true;
-	for (float phi = -2.0*APPLE_PI; phi < 2.0*APPLE_PI; phi += 0.01745329251) {
-		if (_solve(x, y, phi, shoulder, elbow, wrist)) {
-			return true;
-		}
-	}
-
-	return false;
-}
-
-void RobotArm::IK2() {
-    float x = handPosition.x();
-    float y = handPosition.z();
-    float z = handPosition.y();
-
-    float _r = sqrt(x*x + y*y);
-	float _base = atan2(y, x);
-
-	// Check the range of the base
-	if (!inRange(_base)) {
-		// If not in range, flip the angle
-		_base += (_base < 0) ? APPLE_PI : -APPLE_PI;
-		_r *= -1;
-	}
-
-	// Solve XY (RZ) for the arm plane
-	if (!_solve(_r, z - upperArmLength, shoulderAngle, elbowAngle, wristAngle)) return;
-
-	// If there is a solution, return the angles
-	baseAngle = _base;
+        if (!isnanf(shoulderRad) && !isnanf(elbowRad) && !isnanf(wristRad)) {
+            shoulderAngle = degrees(shoulderRad);
+            elbowAngle = degrees(elbowRad);
+            wristAngle = degrees(wristRad);
+            break;
+        }
+    }
 }
 
 bool RobotArm::send(int base, int shoulder, int elbow, int wrist, int grip) {

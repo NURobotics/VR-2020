@@ -107,9 +107,5 @@ struct RobotArm {
 	void calcAngles(ViveController R);
 	void inverseKin();
 
-	void IK2();
-	bool _solve(float x, float y, float& shoulder, float& elbow, float& wrist);
-	bool _solve(float x, float y, float phi, float& shoulder, float& elbow, float& wrist);
-
 	bool send(int base, int shoulder, int elbow, int wrist, int grip);
 };
