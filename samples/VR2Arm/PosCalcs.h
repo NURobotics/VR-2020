@@ -2,24 +2,19 @@
 #include <stdio.h>
 #include <iostream>
 #include <math.h>
+#include <algorithm>
 
 #include "SerialClass.h"
 
 #define APPLE_PI 3.14159265359
 #define HALF_PI 1.57079633
+#define HALF_PI_3 4.71238899
 #define RAD_TO_DEG 57.295779513082320876798154814105
 #define DEG_TO_RAD 0.017453292519943295769236907684886
 #define degrees(rad) ((rad)*RAD_TO_DEG)
 #define radians(deg) ((deg)*DEG_TO_RAD)
 
 using namespace vr;
-
-enum HumanName {
-	Albert,
-	Paulina,
-	Sam,
-	John
-};
 
 struct ViveDevice {
 	enum DeviceName {
@@ -38,12 +33,13 @@ struct ViveDevice {
 	bool valid;
 	ETrackingResult trackingResult;
 
-	ViveDevice(char name);
 	void setPosAndRot(HmdVector3_t p, HmdQuaternion_t r);
 
 	char* getEnglishPoseValidity();
 	char* getEnglishTrackingResultForPose();
 	char* print();
+
+	ViveDevice(char name);
 };
 
 struct ViveController : ViveDevice {
@@ -63,7 +59,16 @@ struct ViveController : ViveDevice {
 		dPadX = 0;
 		dPadY = 0;
 		trigger = 0;
-	}
+		relativeXYZ = HmdVector3_t();
+		relativeROT = HmdQuaternion_t();
+	};
+};
+
+enum HumanName {
+	Albert,
+	Paulina,
+	Sam,
+	John
 };
 
 struct Human {
@@ -88,9 +93,9 @@ struct AllViveDevices {
 };
 
 struct RobotArm {
-	float upperArmLength = 0.096;
-	float foreArmLength = 0.0906;
-	float handLength = 0.096;
+	float upperArmLength;
+	float foreArmLength;
+	float handLength;
 
 	float upperArmLenSq, foreArmLenSq, handLenSq;
 
@@ -108,11 +113,12 @@ struct RobotArm {
 
 	Serial* SP;
 
-	RobotArm(float humanArmLength, const char* serial_port);
-	virtual ~RobotArm();
-	void calcHandPosition(ViveController R);
-	void calcAngles(ViveController R);
+	void calcHandPosition(ViveController C);
+	void calcAngles(ViveController C);
 	void inverseKin();
 
 	bool send(int base, int shoulder, int elbow, int wrist, int grip);
+
+	RobotArm(float humanArmLength, const char* serial_port, float ul, float fl, float hl);
+	virtual ~RobotArm();
 };

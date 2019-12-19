@@ -1,14 +1,5 @@
 ﻿C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\MSBuild\Microsoft\VC\v160\Microsoft.CppBuild.targets(459,5): warning MSB8028: The intermediate directory (Debug\) contains files shared from another project (hellovr_opengl.vcxproj).  This can lead to incorrect clean and rebuild behavior.
-  main.cpp
-C:\Users\aedth\Documents\GitHub\VR\samples\VR2Arm\PosCalcs.h(83,27): warning C4305: 'initializing': truncation from 'double' to 'float'
-C:\Users\aedth\Documents\GitHub\VR\samples\VR2Arm\PosCalcs.h(84,30): warning C4305: 'initializing': truncation from 'double' to 'float'
-C:\Users\aedth\Documents\GitHub\VR\samples\VR2Arm\PosCalcs.h(85,30): warning C4305: 'initializing': truncation from 'double' to 'float'
-C:\Users\aedth\Documents\GitHub\VR\samples\VR2Arm\PosCalcs.h(86,26): warning C4305: 'initializing': truncation from 'double' to 'float'
   LighthouseTracking.cpp
-C:\Users\aedth\Documents\GitHub\VR\samples\VR2Arm\PosCalcs.h(83,27): warning C4305: 'initializing': truncation from 'double' to 'float'
-C:\Users\aedth\Documents\GitHub\VR\samples\VR2Arm\PosCalcs.h(84,30): warning C4305: 'initializing': truncation from 'double' to 'float'
-C:\Users\aedth\Documents\GitHub\VR\samples\VR2Arm\PosCalcs.h(85,30): warning C4305: 'initializing': truncation from 'double' to 'float'
-C:\Users\aedth\Documents\GitHub\VR\samples\VR2Arm\PosCalcs.h(86,26): warning C4305: 'initializing': truncation from 'double' to 'float'
 C:\Users\aedth\Documents\GitHub\VR\samples\VR2Arm\LighthouseTracking.cpp(59,20): warning C4018: '<': signed/unsigned mismatch
 C:\Users\aedth\Documents\GitHub\VR\samples\VR2Arm\LighthouseTracking.cpp(95,1): warning C4996: 'sprintf': This function or variable may be unsafe. Consider using sprintf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
 C:\Program Files (x86)\Windows Kits\10\Include\10.0.18362.0\ucrt\stdio.h(1774): message : see declaration of 'sprintf'
@@ -82,7 +73,88 @@ C:\Users\aedth\Documents\GitHub\VR\samples\VR2Arm\LighthouseTracking.cpp(617,1):
 C:\Program Files (x86)\Windows Kits\10\Include\10.0.18362.0\ucrt\stdio.h(1774): message : see declaration of 'sprintf'
 C:\Users\aedth\Documents\GitHub\VR\samples\VR2Arm\LighthouseTracking.cpp(619,1): warning C4996: 'sprintf': This function or variable may be unsafe. Consider using sprintf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
 C:\Program Files (x86)\Windows Kits\10\Include\10.0.18362.0\ucrt\stdio.h(1774): message : see declaration of 'sprintf'
-  Serial.cpp
+  PosCalcs.cpp
+C:\Users\aedth\Documents\GitHub\VR\samples\VR2Arm\PosCalcs.cpp(13,1): warning C4996: 'sprintf': This function or variable may be unsafe. Consider using sprintf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+C:\Program Files (x86)\Windows Kits\10\Include\10.0.18362.0\ucrt\stdio.h(1774): message : see declaration of 'sprintf'
+C:\Users\aedth\Documents\GitHub\VR\samples\VR2Arm\PosCalcs.cpp(15,1): warning C4996: 'sprintf': This function or variable may be unsafe. Consider using sprintf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+C:\Program Files (x86)\Windows Kits\10\Include\10.0.18362.0\ucrt\stdio.h(1774): message : see declaration of 'sprintf'
+C:\Users\aedth\Documents\GitHub\VR\samples\VR2Arm\PosCalcs.cpp(25,1): warning C4996: 'sprintf': This function or variable may be unsafe. Consider using sprintf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+C:\Program Files (x86)\Windows Kits\10\Include\10.0.18362.0\ucrt\stdio.h(1774): message : see declaration of 'sprintf'
+C:\Users\aedth\Documents\GitHub\VR\samples\VR2Arm\PosCalcs.cpp(28,1): warning C4996: 'sprintf': This function or variable may be unsafe. Consider using sprintf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+C:\Program Files (x86)\Windows Kits\10\Include\10.0.18362.0\ucrt\stdio.h(1774): message : see declaration of 'sprintf'
+C:\Users\aedth\Documents\GitHub\VR\samples\VR2Arm\PosCalcs.cpp(31,1): warning C4996: 'sprintf': This function or variable may be unsafe. Consider using sprintf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+C:\Program Files (x86)\Windows Kits\10\Include\10.0.18362.0\ucrt\stdio.h(1774): message : see declaration of 'sprintf'
+C:\Users\aedth\Documents\GitHub\VR\samples\VR2Arm\PosCalcs.cpp(34,1): warning C4996: 'sprintf': This function or variable may be unsafe. Consider using sprintf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+C:\Program Files (x86)\Windows Kits\10\Include\10.0.18362.0\ucrt\stdio.h(1774): message : see declaration of 'sprintf'
+C:\Users\aedth\Documents\GitHub\VR\samples\VR2Arm\PosCalcs.cpp(37,1): warning C4996: 'sprintf': This function or variable may be unsafe. Consider using sprintf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+C:\Program Files (x86)\Windows Kits\10\Include\10.0.18362.0\ucrt\stdio.h(1774): message : see declaration of 'sprintf'
+C:\Users\aedth\Documents\GitHub\VR\samples\VR2Arm\PosCalcs.cpp(40,1): warning C4996: 'sprintf': This function or variable may be unsafe. Consider using sprintf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+C:\Program Files (x86)\Windows Kits\10\Include\10.0.18362.0\ucrt\stdio.h(1774): message : see declaration of 'sprintf'
+C:\Users\aedth\Documents\GitHub\VR\samples\VR2Arm\PosCalcs.cpp(50,1): warning C4996: 'sprintf': This function or variable may be unsafe. Consider using sprintf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+C:\Program Files (x86)\Windows Kits\10\Include\10.0.18362.0\ucrt\stdio.h(1774): message : see declaration of 'sprintf'
+C:\Users\aedth\Documents\GitHub\VR\samples\VR2Arm\PosCalcs.cpp(52,1): warning C4996: 'sprintf': This function or variable may be unsafe. Consider using sprintf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+C:\Program Files (x86)\Windows Kits\10\Include\10.0.18362.0\ucrt\stdio.h(1774): message : see declaration of 'sprintf'
+C:\Users\aedth\Documents\GitHub\VR\samples\VR2Arm\PosCalcs.cpp(83,1): warning C4996: 'sprintf': This function or variable may be unsafe. Consider using sprintf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+C:\Program Files (x86)\Windows Kits\10\Include\10.0.18362.0\ucrt\stdio.h(1774): message : see declaration of 'sprintf'
+C:\Users\aedth\Documents\GitHub\VR\samples\VR2Arm\PosCalcs.cpp(85,1): warning C4996: 'sprintf': This function or variable may be unsafe. Consider using sprintf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+C:\Program Files (x86)\Windows Kits\10\Include\10.0.18362.0\ucrt\stdio.h(1774): message : see declaration of 'sprintf'
+C:\Users\aedth\Documents\GitHub\VR\samples\VR2Arm\PosCalcs.cpp(102,18): warning C4305: '=': truncation from 'double' to 'float'
+C:\Users\aedth\Documents\GitHub\VR\samples\VR2Arm\PosCalcs.cpp(103,25): warning C4305: '=': truncation from 'double' to 'float'
+C:\Users\aedth\Documents\GitHub\VR\samples\VR2Arm\PosCalcs.cpp(107,25): warning C4305: '=': truncation from 'double' to 'float'
+C:\Users\aedth\Documents\GitHub\VR\samples\VR2Arm\PosCalcs.cpp(110,19): warning C4305: '=': truncation from 'double' to 'float'
+C:\Users\aedth\Documents\GitHub\VR\samples\VR2Arm\PosCalcs.cpp(114,18): warning C4305: '=': truncation from 'double' to 'float'
+C:\Users\aedth\Documents\GitHub\VR\samples\VR2Arm\PosCalcs.cpp(115,25): warning C4305: '=': truncation from 'double' to 'float'
+C:\Users\aedth\Documents\GitHub\VR\samples\VR2Arm\PosCalcs.cpp(118,19): warning C4305: '=': truncation from 'double' to 'float'
+C:\Users\aedth\Documents\GitHub\VR\samples\VR2Arm\PosCalcs.cpp(119,25): warning C4305: '=': truncation from 'double' to 'float'
+C:\Users\aedth\Documents\GitHub\VR\samples\VR2Arm\PosCalcs.cpp(142,1): warning C4996: 'sprintf': This function or variable may be unsafe. Consider using sprintf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+C:\Program Files (x86)\Windows Kits\10\Include\10.0.18362.0\ucrt\stdio.h(1774): message : see declaration of 'sprintf'
+C:\Users\aedth\Documents\GitHub\VR\samples\VR2Arm\PosCalcs.cpp(143,1): warning C4996: 'sprintf': This function or variable may be unsafe. Consider using sprintf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+C:\Program Files (x86)\Windows Kits\10\Include\10.0.18362.0\ucrt\stdio.h(1774): message : see declaration of 'sprintf'
+C:\Users\aedth\Documents\GitHub\VR\samples\VR2Arm\PosCalcs.cpp(144,1): warning C4996: 'sprintf': This function or variable may be unsafe. Consider using sprintf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+C:\Program Files (x86)\Windows Kits\10\Include\10.0.18362.0\ucrt\stdio.h(1774): message : see declaration of 'sprintf'
+C:\Users\aedth\Documents\GitHub\VR\samples\VR2Arm\PosCalcs.cpp(146,1): warning C4996: 'sprintf': This function or variable may be unsafe. Consider using sprintf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+C:\Program Files (x86)\Windows Kits\10\Include\10.0.18362.0\ucrt\stdio.h(1774): message : see declaration of 'sprintf'
+C:\Users\aedth\Documents\GitHub\VR\samples\VR2Arm\PosCalcs.cpp(147,1): warning C4996: 'sprintf': This function or variable may be unsafe. Consider using sprintf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+C:\Program Files (x86)\Windows Kits\10\Include\10.0.18362.0\ucrt\stdio.h(1774): message : see declaration of 'sprintf'
+C:\Users\aedth\Documents\GitHub\VR\samples\VR2Arm\PosCalcs.cpp(148,1): warning C4996: 'sprintf': This function or variable may be unsafe. Consider using sprintf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+C:\Program Files (x86)\Windows Kits\10\Include\10.0.18362.0\ucrt\stdio.h(1774): message : see declaration of 'sprintf'
+C:\Users\aedth\Documents\GitHub\VR\samples\VR2Arm\PosCalcs.cpp(150,1): warning C4996: 'sprintf': This function or variable may be unsafe. Consider using sprintf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+C:\Program Files (x86)\Windows Kits\10\Include\10.0.18362.0\ucrt\stdio.h(1774): message : see declaration of 'sprintf'
+C:\Users\aedth\Documents\GitHub\VR\samples\VR2Arm\PosCalcs.cpp(152,1): warning C4996: 'sprintf': This function or variable may be unsafe. Consider using sprintf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+C:\Program Files (x86)\Windows Kits\10\Include\10.0.18362.0\ucrt\stdio.h(1774): message : see declaration of 'sprintf'
+C:\Users\aedth\Documents\GitHub\VR\samples\VR2Arm\PosCalcs.cpp(153,1): warning C4996: 'sprintf': This function or variable may be unsafe. Consider using sprintf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+C:\Program Files (x86)\Windows Kits\10\Include\10.0.18362.0\ucrt\stdio.h(1774): message : see declaration of 'sprintf'
+C:\Users\aedth\Documents\GitHub\VR\samples\VR2Arm\PosCalcs.cpp(154,1): warning C4996: 'sprintf': This function or variable may be unsafe. Consider using sprintf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+C:\Program Files (x86)\Windows Kits\10\Include\10.0.18362.0\ucrt\stdio.h(1774): message : see declaration of 'sprintf'
+C:\Users\aedth\Documents\GitHub\VR\samples\VR2Arm\PosCalcs.cpp(156,1): warning C4996: 'sprintf': This function or variable may be unsafe. Consider using sprintf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+C:\Program Files (x86)\Windows Kits\10\Include\10.0.18362.0\ucrt\stdio.h(1774): message : see declaration of 'sprintf'
+C:\Users\aedth\Documents\GitHub\VR\samples\VR2Arm\PosCalcs.cpp(182,18): warning C4244: '=': conversion from 'float' to 'int', possible loss of data
+C:\Users\aedth\Documents\GitHub\VR\samples\VR2Arm\PosCalcs.cpp(195,51): warning C4305: '+=': truncation from 'double' to 'float'
+C:\Users\aedth\Documents\GitHub\VR\samples\VR2Arm\PosCalcs.cpp(207,30): warning C4244: 'initializing': conversion from 'double' to 'float', possible loss of data
+C:\Users\aedth\Documents\GitHub\VR\samples\VR2Arm\PosCalcs.cpp(207,24): warning C4244: 'initializing': conversion from 'double' to 'const float', possible loss of data
+C:\Users\aedth\Documents\GitHub\VR\samples\VR2Arm\PosCalcs.cpp(209,36): warning C4244: 'initializing': conversion from 'double' to 'float', possible loss of data
+C:\Users\aedth\Documents\GitHub\VR\samples\VR2Arm\PosCalcs.cpp(209,30): warning C4244: 'initializing': conversion from 'double' to 'const float', possible loss of data
+C:\Users\aedth\Documents\GitHub\VR\samples\VR2Arm\PosCalcs.cpp(210,57): warning C4244: 'initializing': conversion from 'double' to 'float', possible loss of data
+C:\Users\aedth\Documents\GitHub\VR\samples\VR2Arm\PosCalcs.cpp(210,33): warning C4244: 'initializing': conversion from 'double' to 'const float', possible loss of data
+C:\Users\aedth\Documents\GitHub\VR\samples\VR2Arm\PosCalcs.cpp(211,61): warning C4244: 'initializing': conversion from 'double' to 'float', possible loss of data
+C:\Users\aedth\Documents\GitHub\VR\samples\VR2Arm\PosCalcs.cpp(211,30): warning C4244: 'initializing': conversion from 'double' to 'const float', possible loss of data
+C:\Users\aedth\Documents\GitHub\VR\samples\VR2Arm\PosCalcs.cpp(214,32): warning C4244: '=': conversion from 'const _Ty' to 'float', possible loss of data
+          with
+          [
+              _Ty=double
+          ]
+C:\Users\aedth\Documents\GitHub\VR\samples\VR2Arm\PosCalcs.cpp(215,29): warning C4244: '=': conversion from 'const _Ty' to 'float', possible loss of data
+          with
+          [
+              _Ty=double
+          ]
+C:\Users\aedth\Documents\GitHub\VR\samples\VR2Arm\PosCalcs.cpp(216,29): warning C4244: '=': conversion from 'const _Ty' to 'float', possible loss of data
+          with
+          [
+              _Ty=double
+          ]
+C:\Users\aedth\Documents\GitHub\VR\samples\VR2Arm\PosCalcs.cpp(236,63): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
+  main.cpp
+C:\Users\aedth\Documents\GitHub\VR\samples\VR2Arm\main.cpp(40,72): warning C4305: 'argument': truncation from 'double' to 'float'
   Generating Code...
-  cpTime.c
   VR2Arm.vcxproj -> C:\Users\aedth\Documents\GitHub\VR\samples\VR2Arm\..\bin\win32\VR2Arm.exe

@@ -37,7 +37,7 @@ int main(int argc, char *argv[])
 	InitFlags flags;
 	AllViveDevices ViveSystem;
 	Human Operator(Paulina);
-	RobotArm claw(Operator.armLength, "\\\\.\\COM4");
+	RobotArm claw(Operator.armLength, "\\\\.\\COM4", 0.096, 0.0906, 0.096);
 
 	bool isHelp = false;
 	bool invert = false;
@@ -158,7 +158,7 @@ int main(int argc, char *argv[])
 			if (ViveSystem.R.valid && ViveSystem.R.calibarated) {
 				claw.calcHandPosition(ViveSystem.R);
 				claw.calcAngles(ViveSystem.R);
-				claw.send((int)claw.shoulderAngle, (int)claw.upperArmAngle, (int)claw.foreArmAngle, (int)claw.handAngle, claw.gripAngle);
+				claw.send((int)claw.baseAngle, (int)claw.shoulderAngle, (int)claw.elbowAngle, (int)claw.wristAngle, claw.gripAngle);
 				//claw.send((int)0, (int)45, (int)180, (int)45, claw.gripAngle);
 				std::cout << std::endl << claw.handPosition.x() << std::endl << claw.handPosition.y() << std::endl << claw.handPosition.z() << std::endl << std::endl;
 			}

@@ -86,48 +86,6 @@ char* ViveController::print(bool rel) {
 	return cB;
 }
 
-void AllViveDevices::calcRelHandPos(Human Hu) {
-	for (int i = 0; i < 3; i++) {
-		R.relativeXYZ.v[i] = R.XYZ.v[i] - H.XYZ.v[i] - Hu.headShoulderDistance.v[i];
-		if (i == 0)
-			L.relativeXYZ.v[i] = L.XYZ.v[i] - H.XYZ.v[i] + Hu.headShoulderDistance.v[i];
-		else
-			L.relativeXYZ.v[i] = L.XYZ.v[i] - H.XYZ.v[i] - Hu.headShoulderDistance.v[i];
-	}
-}
-
-void AllViveDevices::print(bool rel) {
-	char* coordsBuf = new char[1024];
-	char* trackBuf = new char[1024];
-	char* rotBuf = new char[1024];
-
-	char* bufL = new char[100];
-	char* bufR = new char[100];
-
-	sprintf(coordsBuf, "HMD %-28.28s", H.print());
-	sprintf(trackBuf, "HMD: %-25.25s %-7.7s ", H.getEnglishTrackingResultForPose(), H.getEnglishPoseValidity());
-	sprintf(rotBuf, "HMD: qw:%.2f qx:%.2f qy:%.2f qz:%.2f", H.ROT.w, H.ROT.x, H.ROT.y, H.ROT.z);
-
-	sprintf(coordsBuf, "%s %s: %-28.28s", coordsBuf, "LEFT", L.print(rel));
-	sprintf(trackBuf, "%s %s: %-25.25s %-7.7s", trackBuf, "LEFT", L.getEnglishTrackingResultForPose(), L.getEnglishPoseValidity());
-	sprintf(rotBuf, "%s %s qw:%.2f qx:%.2f qy:%.2f qz:%.2f", rotBuf, "LEFT", L.ROT.w, L.ROT.x, L.ROT.y, L.ROT.z);
-
-	sprintf(bufL, "hand=%s handid=%d trigger=%f padx=%f pady=%f", "LEFT", 1, L.trigger, L.dPadX, L.dPadY);
-
-	sprintf(coordsBuf, "%s %s: %-28.28s", coordsBuf, "RIGHT", R.print(rel));
-	sprintf(trackBuf, "%s %s: %-25.25s %-7.7s", trackBuf, "RIGHT", R.getEnglishTrackingResultForPose(), R.getEnglishPoseValidity());
-	sprintf(rotBuf, "%s %s qw:%.2f qx:%.2f qy:%.2f qz:%.2f", rotBuf, "RIGHT", R.ROT.w, R.ROT.x, R.ROT.y, R.ROT.z);
-
-	sprintf(bufR, "hand=%s handid=%d trigger=%f padx=%f pady=%f", "RIGHT", 1, R.trigger, R.dPadX, R.dPadY);
-
-	printf("\nCOORDS-- %s", coordsBuf);
-	printf("\nTRACK-- %s", trackBuf);
-	printf("\nROT-- %s", rotBuf);
-
-	if (L.valid) printf("\nANALOG-- %s", bufL);
-	if (R.valid) printf("  %s", bufR);
-}
-
 void Human::calcHeadShoulderOffset(ViveController con, ViveDevice H) {
 	shoulderPos.ySet(con.XYZ.y());
 	shoulderPos.zSet(con.XYZ.z() - armLength);
@@ -163,28 +121,55 @@ Human::Human(HumanName n) {
 	}
 }
 
-RobotArm::RobotArm(float humanArmLength, const char* serial_port) {
-	armMaxLength = (upperArmLength + foreArmLength + handLength) * .99;
-    human2ArmConversion = armMaxLength / humanArmLength;
-
-	this->SP = new Serial(serial_port);
-	if (this->SP->IsConnected())
-		printf("We're connected\n");
-
-	upperArmLenSq = upperArmLength * upperArmLength;
-	foreArmLenSq = foreArmLength * foreArmLength;
-	handLenSq = handLength * handLength;
-
-	handPosition.xSet(0.0); handPosition.ySet(0.0); handPosition.zSet(0.0);
-}
-
-void RobotArm::calcHandPosition(ViveController R) {
+void AllViveDevices::calcRelHandPos(Human Hu) {
 	for (int i = 0; i < 3; i++) {
-		handPosition.v[i] = R.relativeXYZ.v[i] * human2ArmConversion;
+		R.relativeXYZ.v[i] = abs(R.XYZ.v[i] - H.XYZ.v[i]) - Hu.headShoulderDistance.v[i];
+		if (i == 0)
+			L.relativeXYZ.v[i] = abs(L.XYZ.v[i] - H.XYZ.v[i]) + Hu.headShoulderDistance.v[i];
+		else
+			L.relativeXYZ.v[i] = abs(L.XYZ.v[i] - H.XYZ.v[i]) - Hu.headShoulderDistance.v[i];
 	}
 }
 
-void RobotArm::calcAngles(ViveController R) {
+void AllViveDevices::print(bool rel) {
+	char* coordsBuf = new char[1024];
+	char* trackBuf = new char[1024];
+	char* rotBuf = new char[1024];
+
+	char* bufL = new char[100];
+	char* bufR = new char[100];
+
+	sprintf(coordsBuf, "HMD %-28.28s", H.print());
+	sprintf(trackBuf, "HMD: %-25.25s %-7.7s ", H.getEnglishTrackingResultForPose(), H.getEnglishPoseValidity());
+	sprintf(rotBuf, "HMD: qw:%.2f qx:%.2f qy:%.2f qz:%.2f", H.ROT.w, H.ROT.x, H.ROT.y, H.ROT.z);
+
+	sprintf(coordsBuf, "%s %s: %-28.28s", coordsBuf, "LEFT", L.print(rel));
+	sprintf(trackBuf, "%s %s: %-25.25s %-7.7s", trackBuf, "LEFT", L.getEnglishTrackingResultForPose(), L.getEnglishPoseValidity());
+	sprintf(rotBuf, "%s %s qw:%.2f qx:%.2f qy:%.2f qz:%.2f", rotBuf, "LEFT", L.ROT.w, L.ROT.x, L.ROT.y, L.ROT.z);
+
+	sprintf(bufL, "hand=%s handid=%d trigger=%f padx=%f pady=%f", "LEFT", 1, L.trigger, L.dPadX, L.dPadY);
+
+	sprintf(coordsBuf, "%s %s: %-28.28s", coordsBuf, "RIGHT", R.print(rel));
+	sprintf(trackBuf, "%s %s: %-25.25s %-7.7s", trackBuf, "RIGHT", R.getEnglishTrackingResultForPose(), R.getEnglishPoseValidity());
+	sprintf(rotBuf, "%s %s qw:%.2f qx:%.2f qy:%.2f qz:%.2f", rotBuf, "RIGHT", R.ROT.w, R.ROT.x, R.ROT.y, R.ROT.z);
+
+	sprintf(bufR, "hand=%s handid=%d trigger=%f padx=%f pady=%f", "RIGHT", 1, R.trigger, R.dPadX, R.dPadY);
+
+	printf("\nCOORDS-- %s", coordsBuf);
+	printf("\nTRACK-- %s", trackBuf);
+	printf("\nROT-- %s", rotBuf);
+
+	if (L.valid) printf("\nANALOG-- %s", bufL);
+	if (R.valid) printf("  %s", bufR);
+}
+
+void RobotArm::calcHandPosition(ViveController C) {
+	for (int i = 0; i < 3; i++) {
+		handPosition.v[i] = C.relativeXYZ.v[i] * human2ArmConversion;
+	}
+}
+
+void RobotArm::calcAngles(ViveController C) {
 	float positionLength = sqrt(handPosition.v[0] * handPosition.v[0] + handPosition.v[1] * handPosition.v[1] + handPosition.v[2] * handPosition.v[2]);
 	if (positionLength > armMaxLength) {
 		float scaleFactor = armMaxLength / positionLength;
@@ -194,7 +179,7 @@ void RobotArm::calcAngles(ViveController R) {
 	}
 
 	inverseKin();
-	gripAngle = 180 * (1-R.trigger);
+	gripAngle = 180 * (1-C.trigger);
 }
 
 void RobotArm::inverseKin() {
@@ -221,13 +206,13 @@ void RobotArm::inverseKin() {
         /* s_w angle to humerus */
         const float a2 = acos((foreArmLenSq - upperArmLenSq + s_w) / (2.0 * s_w_sqrt * foreArmLength));
 
-        float elbowRad = acos((upperArmLenSq + foreArmLenSq - s_w) / (2.0 * upperArmLength * foreArmLength)) - HALF_PI;
-        float shoulderRad = HALF_PI - (a1 + a2) - elbowRad;
-        float wristRad = i - (elbowRad + shoulderRad) + HALF_PI;
+        const float elbowRad = acos((upperArmLenSq + foreArmLenSq - s_w) / (2.0 * upperArmLength * foreArmLength));
+        const float shoulderRad = HALF_PI_3 - (a1 + a2) - elbowRad;
+        const float wristRad = i - (elbowRad + shoulderRad) + HALF_PI_3;
 
-        if (!isnanf(shoulderRad) && !isnanf(elbowRad) && !isnanf(wristRad)) {
-            shoulderAngle = min(max(degrees(shoulderRad+HALF_PI), 0.0), 180.0);
-            elbowAngle = min(max(degrees(elbowRad+HALF_PI), 0.0), 180.0);
+        if (!isnan(shoulderRad) && !isnan(elbowRad) && !isnan(wristRad)) {
+            shoulderAngle = min(max(degrees(shoulderRad), 0.0), 180.0);
+            elbowAngle = min(max(degrees(elbowRad), 0.0), 180.0);
             wristAngle = min(max(degrees(wristRad), 0.0), 180.0);
             break;
         }
@@ -244,6 +229,22 @@ bool RobotArm::send(int base, int shoulder, int elbow, int wrist, int grip) {
 	to_send[5] = (char)255;
 
 	return (bool)SP->WriteData(to_send, 6);
+}
+
+RobotArm::RobotArm(float humanArmLength, const char* serial_port, float ul, float fl, float hl) :
+	upperArmLength(ul), foreArmLength(fl), handLength(hl) {
+	armMaxLength = (upperArmLength + foreArmLength + handLength) * .99;
+    human2ArmConversion = armMaxLength / humanArmLength;
+
+	this->SP = new Serial(serial_port);
+	if (this->SP->IsConnected())
+		printf("We're connected\n");
+
+	upperArmLenSq = upperArmLength * upperArmLength;
+	foreArmLenSq = foreArmLength * foreArmLength;
+	handLenSq = handLength * handLength;
+
+	handPosition.xSet(0.0); handPosition.ySet(0.0); handPosition.zSet(0.0);
 }
 
 RobotArm::~RobotArm() {
