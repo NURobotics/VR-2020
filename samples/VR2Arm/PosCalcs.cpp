@@ -1,6 +1,6 @@
 #include "PosCalcs.h"
 
-using namespace std;
+//using namespace std;
 
 void ViveDevice::setPosAndRot(HmdVector3_t p, HmdQuaternion_t r) {
 	XYZ = p;
@@ -88,8 +88,8 @@ char* ViveController::print(bool rel) {
 
 void Human::calcHeadShoulderOffset(ViveController con, ViveDevice H) {
 	shoulderPos.ySet(con.XYZ.y());
-	shoulderPos.zSet(con.XYZ.z() - armLength);
-	shoulderPos.xSet(H.XYZ.x() - headToArmAcross);
+	shoulderPos.zSet(con.XYZ.z() + armLength);
+	shoulderPos.xSet(std::abs(H.XYZ.x() - headToArmAcross));
 
 	for (int i = 0; i < 3; i++) {
 		headShoulderDistance.v[i] = shoulderPos.v[i] - H.XYZ.v[i];
@@ -122,13 +122,13 @@ Human::Human(HumanName n) {
 }
 
 void AllViveDevices::calcRelHandPos(Human Hu) {
-	for (int i = 0; i < 3; i++) {
-		R.relativeXYZ.v[i] = abs(R.XYZ.v[i] - H.XYZ.v[i]) - Hu.headShoulderDistance.v[i];
-		if (i == 0)
-			L.relativeXYZ.v[i] = abs(L.XYZ.v[i] - H.XYZ.v[i]) + Hu.headShoulderDistance.v[i];
-		else
-			L.relativeXYZ.v[i] = abs(L.XYZ.v[i] - H.XYZ.v[i]) - Hu.headShoulderDistance.v[i];
-	}
+	R.relativeXYZ.xSet(R.XYZ.x() - H.XYZ.x() + Hu.headShoulderDistance.x());
+	R.relativeXYZ.ySet(R.XYZ.y() - H.XYZ.y() - Hu.headShoulderDistance.y());
+	R.relativeXYZ.zSet(-R.XYZ.z() + H.XYZ.z() + Hu.headShoulderDistance.z());
+
+	L.relativeXYZ.xSet(R.XYZ.x() - H.XYZ.x() - Hu.headShoulderDistance.x());
+	L.relativeXYZ.ySet(R.XYZ.y() - H.XYZ.y() - Hu.headShoulderDistance.y());
+	L.relativeXYZ.zSet(-R.XYZ.z() + H.XYZ.z() + Hu.headShoulderDistance.z());
 }
 
 void AllViveDevices::print(bool rel) {
@@ -182,18 +182,24 @@ void RobotArm::calcAngles(ViveController C) {
 	gripAngle = 180 * (1-C.trigger);
 }
 
+float jointRads2Deg(float radAngle) {
+	return std::min(std::max(degrees(radAngle), 0.0), 180.0);
+}
+
 void RobotArm::inverseKin() {
-    float x = handPosition.x();
-    float y = handPosition.y();
-    float z = handPosition.z();
+    float x = handPosition.z();
+    float y = -handPosition.x();
+    float z = handPosition.y();
 
-    z = max(z, (float) 0.020);
+	float r = std::sqrt(x * x + y * y);
 
-    baseAngle = atan2(x, y);
+    z = std::max(z, (float) 0.020);
+
+    const float baseRad = atan2(x, y);
 
     // i = global wrist angle
     for (float i = 0; i <= APPLE_PI; i+=DEG_TO_RAD) {
-        const float wrist_y = y - cos(i) * handLength;
+        const float wrist_y = r - cos(i) * handLength;
         const float wrist_z = z - sin(i) * handLength;
 
         /* Shoulder to wrist distance ( AKA sw ) */
@@ -211,9 +217,10 @@ void RobotArm::inverseKin() {
         const float wristRad = i - (elbowRad + shoulderRad) + HALF_PI_3;
 
         if (!isnan(shoulderRad) && !isnan(elbowRad) && !isnan(wristRad)) {
-            shoulderAngle = min(max(degrees(shoulderRad), 0.0), 180.0);
-            elbowAngle = min(max(degrees(elbowRad), 0.0), 180.0);
-            wristAngle = min(max(degrees(wristRad), 0.0), 180.0);
+            shoulderAngle = 180 - jointRads2Deg(shoulderRad);
+            elbowAngle = jointRads2Deg(elbowRad);
+            wristAngle = 180 - jointRads2Deg(wristRad);
+			baseAngle = 180 - jointRads2Deg(baseRad);
             break;
         }
     }
