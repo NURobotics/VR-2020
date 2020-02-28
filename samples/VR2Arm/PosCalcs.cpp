@@ -226,7 +226,7 @@ void RobotArm::inverseKin() {
     }
 }
 
-bool RobotArm::send(int base, int shoulder, int elbow, int wrist, int grip) {
+bool RobotArm::sendAngles(int base, int shoulder, int elbow, int wrist, int grip) {
 	char to_send[6];
 	to_send[0] = (char)base;
 	to_send[1] = (char)shoulder;
@@ -235,17 +235,34 @@ bool RobotArm::send(int base, int shoulder, int elbow, int wrist, int grip) {
 	to_send[4] = (char)grip;
 	to_send[5] = (char)255;
 
-	return (bool)SP->WriteData(to_send, 6);
+	if (ONLINE) {
+		send(server, to_send, 6, 0);
+	}
+	else {
+		return (bool)SP->WriteData(to_send, 6);
+	}
 }
 
-RobotArm::RobotArm(float humanArmLength, const char* serial_port, float ul, float fl, float hl) :
+RobotArm::RobotArm(float humanArmLength, float ul, float fl, float hl, const char* serial_port, bool online) :
 	upperArmLength(ul), foreArmLength(fl), handLength(hl) {
 	armMaxLength = (upperArmLength + foreArmLength + handLength) * .99;
-    human2ArmConversion = armMaxLength / humanArmLength;
+	human2ArmConversion = armMaxLength / humanArmLength;
+	ONLINE = online;
 
-	this->SP = new Serial(serial_port);
-	if (this->SP->IsConnected())
-		printf("We're connected\n");
+	if (ONLINE) {
+		WSAStartup(MAKEWORD(2, 0), &wsaData);
+		server = socket(AF_INET, SOCK_STREAM, 0);
+		addr.sin_addr.s_addr = inet_addr("34.224.214.122");
+		addr.sin_family = AF_INET;
+		addr.sin_port = htons(4444);
+
+		connect(server, (SOCKADDR*)&addr, sizeof(addr));
+	}
+	else {
+		this->SP = new Serial(serial_port);
+		if (this->SP->IsConnected())
+			printf("We're connected\n");
+	}
 
 	upperArmLenSq = upperArmLength * upperArmLength;
 	foreArmLenSq = foreArmLength * foreArmLength;
@@ -255,5 +272,11 @@ RobotArm::RobotArm(float humanArmLength, const char* serial_port, float ul, floa
 }
 
 RobotArm::~RobotArm() {
-	this->SP->~Serial();
+	if (ONLINE) {
+		closesocket(server);
+		WSACleanup();
+	}
+	else {
+		this->SP->~Serial();
+	}
 }

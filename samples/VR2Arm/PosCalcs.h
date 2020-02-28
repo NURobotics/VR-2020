@@ -4,6 +4,9 @@
 #include <math.h>
 #include <algorithm>
 
+#define NOMINMAX
+#include <winsock2.h>
+
 #include "SerialClass.h"
 
 #define APPLE_PI 3.14159265359
@@ -113,12 +116,17 @@ struct RobotArm {
 
 	Serial* SP;
 
+	bool ONLINE;
+	WSADATA wsaData;
+	SOCKET server = INVALID_SOCKET;
+	SOCKADDR_IN addr;
+
 	void calcHandPosition(ViveController C);
 	void calcAngles(ViveController C);
 	void inverseKin();
 
-	bool send(int base, int shoulder, int elbow, int wrist, int grip);
+	bool sendAngles(int base, int shoulder, int elbow, int wrist, int grip);
 
-	RobotArm(float humanArmLength, const char* serial_port, float ul, float fl, float hl);
+	RobotArm(float humanArmLength, float ul, float fl, float hl, const char* serial_port, bool online);
 	virtual ~RobotArm();
 };

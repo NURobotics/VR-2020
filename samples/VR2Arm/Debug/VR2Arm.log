@@ -1,73 +1,33 @@
 ﻿C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\MSBuild\Microsoft\VC\v160\Microsoft.CppBuild.targets(459,5): warning MSB8028: The intermediate directory (Debug\) contains files shared from another project (hellovr_opengl.vcxproj).  This can lead to incorrect clean and rebuild behavior.
-  PosCalcs.cpp
-C:\Users\NURC\Documents\VRProject\samples\VR2Arm\PosCalcs.cpp(13,1): warning C4996: 'sprintf': This function or variable may be unsafe. Consider using sprintf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
-C:\Program Files (x86)\Windows Kits\10\Include\10.0.18362.0\ucrt\stdio.h(1774): message : see declaration of 'sprintf'
-C:\Users\NURC\Documents\VRProject\samples\VR2Arm\PosCalcs.cpp(15,1): warning C4996: 'sprintf': This function or variable may be unsafe. Consider using sprintf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
-C:\Program Files (x86)\Windows Kits\10\Include\10.0.18362.0\ucrt\stdio.h(1774): message : see declaration of 'sprintf'
-C:\Users\NURC\Documents\VRProject\samples\VR2Arm\PosCalcs.cpp(25,1): warning C4996: 'sprintf': This function or variable may be unsafe. Consider using sprintf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
-C:\Program Files (x86)\Windows Kits\10\Include\10.0.18362.0\ucrt\stdio.h(1774): message : see declaration of 'sprintf'
-C:\Users\NURC\Documents\VRProject\samples\VR2Arm\PosCalcs.cpp(28,1): warning C4996: 'sprintf': This function or variable may be unsafe. Consider using sprintf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
-C:\Program Files (x86)\Windows Kits\10\Include\10.0.18362.0\ucrt\stdio.h(1774): message : see declaration of 'sprintf'
-C:\Users\NURC\Documents\VRProject\samples\VR2Arm\PosCalcs.cpp(31,1): warning C4996: 'sprintf': This function or variable may be unsafe. Consider using sprintf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
-C:\Program Files (x86)\Windows Kits\10\Include\10.0.18362.0\ucrt\stdio.h(1774): message : see declaration of 'sprintf'
-C:\Users\NURC\Documents\VRProject\samples\VR2Arm\PosCalcs.cpp(34,1): warning C4996: 'sprintf': This function or variable may be unsafe. Consider using sprintf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
-C:\Program Files (x86)\Windows Kits\10\Include\10.0.18362.0\ucrt\stdio.h(1774): message : see declaration of 'sprintf'
-C:\Users\NURC\Documents\VRProject\samples\VR2Arm\PosCalcs.cpp(37,1): warning C4996: 'sprintf': This function or variable may be unsafe. Consider using sprintf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
-C:\Program Files (x86)\Windows Kits\10\Include\10.0.18362.0\ucrt\stdio.h(1774): message : see declaration of 'sprintf'
-C:\Users\NURC\Documents\VRProject\samples\VR2Arm\PosCalcs.cpp(40,1): warning C4996: 'sprintf': This function or variable may be unsafe. Consider using sprintf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
-C:\Program Files (x86)\Windows Kits\10\Include\10.0.18362.0\ucrt\stdio.h(1774): message : see declaration of 'sprintf'
-C:\Users\NURC\Documents\VRProject\samples\VR2Arm\PosCalcs.cpp(50,1): warning C4996: 'sprintf': This function or variable may be unsafe. Consider using sprintf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
-C:\Program Files (x86)\Windows Kits\10\Include\10.0.18362.0\ucrt\stdio.h(1774): message : see declaration of 'sprintf'
-C:\Users\NURC\Documents\VRProject\samples\VR2Arm\PosCalcs.cpp(52,1): warning C4996: 'sprintf': This function or variable may be unsafe. Consider using sprintf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
-C:\Program Files (x86)\Windows Kits\10\Include\10.0.18362.0\ucrt\stdio.h(1774): message : see declaration of 'sprintf'
-C:\Users\NURC\Documents\VRProject\samples\VR2Arm\PosCalcs.cpp(83,1): warning C4996: 'sprintf': This function or variable may be unsafe. Consider using sprintf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
-C:\Program Files (x86)\Windows Kits\10\Include\10.0.18362.0\ucrt\stdio.h(1774): message : see declaration of 'sprintf'
-C:\Users\NURC\Documents\VRProject\samples\VR2Arm\PosCalcs.cpp(85,1): warning C4996: 'sprintf': This function or variable may be unsafe. Consider using sprintf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
-C:\Program Files (x86)\Windows Kits\10\Include\10.0.18362.0\ucrt\stdio.h(1774): message : see declaration of 'sprintf'
-C:\Users\NURC\Documents\VRProject\samples\VR2Arm\PosCalcs.cpp(102,18): warning C4305: '=': truncation from 'double' to 'float'
-C:\Users\NURC\Documents\VRProject\samples\VR2Arm\PosCalcs.cpp(103,25): warning C4305: '=': truncation from 'double' to 'float'
-C:\Users\NURC\Documents\VRProject\samples\VR2Arm\PosCalcs.cpp(107,25): warning C4305: '=': truncation from 'double' to 'float'
-C:\Users\NURC\Documents\VRProject\samples\VR2Arm\PosCalcs.cpp(110,19): warning C4305: '=': truncation from 'double' to 'float'
-C:\Users\NURC\Documents\VRProject\samples\VR2Arm\PosCalcs.cpp(114,18): warning C4305: '=': truncation from 'double' to 'float'
-C:\Users\NURC\Documents\VRProject\samples\VR2Arm\PosCalcs.cpp(115,25): warning C4305: '=': truncation from 'double' to 'float'
-C:\Users\NURC\Documents\VRProject\samples\VR2Arm\PosCalcs.cpp(118,19): warning C4305: '=': truncation from 'double' to 'float'
-C:\Users\NURC\Documents\VRProject\samples\VR2Arm\PosCalcs.cpp(119,25): warning C4305: '=': truncation from 'double' to 'float'
-C:\Users\NURC\Documents\VRProject\samples\VR2Arm\PosCalcs.cpp(142,1): warning C4996: 'sprintf': This function or variable may be unsafe. Consider using sprintf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
-C:\Program Files (x86)\Windows Kits\10\Include\10.0.18362.0\ucrt\stdio.h(1774): message : see declaration of 'sprintf'
-C:\Users\NURC\Documents\VRProject\samples\VR2Arm\PosCalcs.cpp(143,1): warning C4996: 'sprintf': This function or variable may be unsafe. Consider using sprintf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
-C:\Program Files (x86)\Windows Kits\10\Include\10.0.18362.0\ucrt\stdio.h(1774): message : see declaration of 'sprintf'
-C:\Users\NURC\Documents\VRProject\samples\VR2Arm\PosCalcs.cpp(144,1): warning C4996: 'sprintf': This function or variable may be unsafe. Consider using sprintf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
-C:\Program Files (x86)\Windows Kits\10\Include\10.0.18362.0\ucrt\stdio.h(1774): message : see declaration of 'sprintf'
-C:\Users\NURC\Documents\VRProject\samples\VR2Arm\PosCalcs.cpp(146,1): warning C4996: 'sprintf': This function or variable may be unsafe. Consider using sprintf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
-C:\Program Files (x86)\Windows Kits\10\Include\10.0.18362.0\ucrt\stdio.h(1774): message : see declaration of 'sprintf'
-C:\Users\NURC\Documents\VRProject\samples\VR2Arm\PosCalcs.cpp(147,1): warning C4996: 'sprintf': This function or variable may be unsafe. Consider using sprintf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
-C:\Program Files (x86)\Windows Kits\10\Include\10.0.18362.0\ucrt\stdio.h(1774): message : see declaration of 'sprintf'
-C:\Users\NURC\Documents\VRProject\samples\VR2Arm\PosCalcs.cpp(148,1): warning C4996: 'sprintf': This function or variable may be unsafe. Consider using sprintf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
-C:\Program Files (x86)\Windows Kits\10\Include\10.0.18362.0\ucrt\stdio.h(1774): message : see declaration of 'sprintf'
-C:\Users\NURC\Documents\VRProject\samples\VR2Arm\PosCalcs.cpp(150,1): warning C4996: 'sprintf': This function or variable may be unsafe. Consider using sprintf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
-C:\Program Files (x86)\Windows Kits\10\Include\10.0.18362.0\ucrt\stdio.h(1774): message : see declaration of 'sprintf'
-C:\Users\NURC\Documents\VRProject\samples\VR2Arm\PosCalcs.cpp(152,1): warning C4996: 'sprintf': This function or variable may be unsafe. Consider using sprintf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
-C:\Program Files (x86)\Windows Kits\10\Include\10.0.18362.0\ucrt\stdio.h(1774): message : see declaration of 'sprintf'
-C:\Users\NURC\Documents\VRProject\samples\VR2Arm\PosCalcs.cpp(153,1): warning C4996: 'sprintf': This function or variable may be unsafe. Consider using sprintf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
-C:\Program Files (x86)\Windows Kits\10\Include\10.0.18362.0\ucrt\stdio.h(1774): message : see declaration of 'sprintf'
-C:\Users\NURC\Documents\VRProject\samples\VR2Arm\PosCalcs.cpp(154,1): warning C4996: 'sprintf': This function or variable may be unsafe. Consider using sprintf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
-C:\Program Files (x86)\Windows Kits\10\Include\10.0.18362.0\ucrt\stdio.h(1774): message : see declaration of 'sprintf'
-C:\Users\NURC\Documents\VRProject\samples\VR2Arm\PosCalcs.cpp(156,1): warning C4996: 'sprintf': This function or variable may be unsafe. Consider using sprintf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
-C:\Program Files (x86)\Windows Kits\10\Include\10.0.18362.0\ucrt\stdio.h(1774): message : see declaration of 'sprintf'
-C:\Users\NURC\Documents\VRProject\samples\VR2Arm\PosCalcs.cpp(182,18): warning C4244: '=': conversion from 'float' to 'int', possible loss of data
-C:\Users\NURC\Documents\VRProject\samples\VR2Arm\PosCalcs.cpp(186,17): warning C4244: 'return': conversion from 'const _Ty' to 'float', possible loss of data
+  main.cpp
+C:\Users\NURC\Documents\VRProject\samples\VR2Arm\main.cpp(81,9): warning C4244: 'initializing': conversion from 'float' to 'int', possible loss of data
+C:\Users\NURC\Documents\VRProject\samples\VR2Arm\main.cpp(82,9): warning C4244: 'initializing': conversion from 'float' to 'int', possible loss of data
+C:\Users\NURC\Documents\VRProject\samples\VR2Arm\main.cpp(83,9): warning C4244: 'initializing': conversion from 'float' to 'int', possible loss of data
+C:\Users\NURC\Documents\VRProject\samples\VR2Arm\main.cpp(84,9): warning C4244: 'initializing': conversion from 'float' to 'int', possible loss of data
+C:\Users\NURC\Documents\VRProject\samples\VR2Arm\main.cpp(85,9): warning C4244: 'initializing': conversion from 'float' to 'int', possible loss of data
+C:\Users\NURC\Documents\VRProject\samples\VR2Arm\main.cpp(86,9): warning C4244: 'initializing': conversion from 'float' to 'int', possible loss of data
+C:\Users\NURC\Documents\VRProject\samples\VR2Arm\main.cpp(88,63): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
+C:\Users\NURC\Documents\VRProject\samples\VR2Arm\main.cpp(90,47): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
+C:\Users\NURC\Documents\VRProject\samples\VR2Arm\main.cpp(92,44): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
+C:\Users\NURC\Documents\VRProject\samples\VR2Arm\main.cpp(157,79): warning C4305: 'argument': truncation from 'double' to 'float'
+C:\Users\NURC\Documents\VRProject\samples\VR2Arm\main.cpp(66,12): warning C4244: 'return': conversion from 'double' to 'T', possible loss of data
           with
           [
-              _Ty=double
+              T=float
           ]
-C:\Users\NURC\Documents\VRProject\samples\VR2Arm\PosCalcs.cpp(201,51): warning C4305: '+=': truncation from 'double' to 'float'
-C:\Users\NURC\Documents\VRProject\samples\VR2Arm\PosCalcs.cpp(213,30): warning C4244: 'initializing': conversion from 'double' to 'float', possible loss of data
-C:\Users\NURC\Documents\VRProject\samples\VR2Arm\PosCalcs.cpp(213,24): warning C4244: 'initializing': conversion from 'double' to 'const float', possible loss of data
-C:\Users\NURC\Documents\VRProject\samples\VR2Arm\PosCalcs.cpp(215,36): warning C4244: 'initializing': conversion from 'double' to 'float', possible loss of data
-C:\Users\NURC\Documents\VRProject\samples\VR2Arm\PosCalcs.cpp(215,30): warning C4244: 'initializing': conversion from 'double' to 'const float', possible loss of data
-C:\Users\NURC\Documents\VRProject\samples\VR2Arm\PosCalcs.cpp(216,57): warning C4244: 'initializing': conversion from 'double' to 'float', possible loss of data
-C:\Users\NURC\Documents\VRProject\samples\VR2Arm\PosCalcs.cpp(216,33): warning C4244: 'initializing': conversion from 'double' to 'const float', possible loss of data
-C:\Users\NURC\Documents\VRProject\samples\VR2Arm\PosCalcs.cpp(217,61): warning C4244: 'initializing': conversion from 'double' to 'float', possible loss of data
-C:\Users\NURC\Documents\VRProject\samples\VR2Arm\PosCalcs.cpp(217,30): warning C4244: 'initializing': conversion from 'double' to 'const float', possible loss of data
-C:\Users\NURC\Documents\VRProject\samples\VR2Arm\PosCalcs.cpp(243,63): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
+C:\Users\NURC\Documents\VRProject\samples\VR2Arm\main.cpp(81): message : see reference to function template instantiation 'T cosD<float>(T)' being compiled
+          with
+          [
+              T=float
+          ]
+C:\Users\NURC\Documents\VRProject\samples\VR2Arm\main.cpp(70,12): warning C4244: 'return': conversion from 'double' to 'T', possible loss of data
+          with
+          [
+              T=float
+          ]
+C:\Users\NURC\Documents\VRProject\samples\VR2Arm\main.cpp(82): message : see reference to function template instantiation 'T sinD<float>(T)' being compiled
+          with
+          [
+              T=float
+          ]
   VR2Arm.vcxproj -> C:\Users\NURC\Documents\VRProject\samples\VR2Arm\..\bin\win32\VR2Arm.exe
